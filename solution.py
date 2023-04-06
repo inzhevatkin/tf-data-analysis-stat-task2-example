@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-#from math import log
+from math import log
 from scipy.stats import expon
 
 
@@ -13,12 +13,8 @@ def solution(p: float, x: np.array) -> tuple:
     # Не меняйте название функции и её аргументы
     n = len(x)
     alpha = 1 - p
-    za = expon.ppf(alpha / 2)
-    zb = expon.ppf(1 - alpha / 2)
-    #za = -log(1-alfa)/n;
-    #zb = -log(alfa)/n;
+    za = expon.ppf(alpha / 2, scale=n)
+    zb = expon.ppf(1 - alpha / 2, scale=n)
     loc = x.min()
-    t=71**2
-    return (za - 0.5 + loc) / t, \
-           (zb - 0.5 + loc) / t
-
+    return (za + 0.5 + x.min()) / 71**2, \
+           (zb + 0.5 + x.min()) / 71**2
