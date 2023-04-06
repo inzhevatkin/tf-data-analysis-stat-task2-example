@@ -12,7 +12,7 @@ def solution(p: float, x: np.array) -> tuple:
     # Это будет вашим решением
     # Не меняйте название функции и её аргументы
     n = len(x)
-    alfa = 1 - p
+    alpha = 1 - p
     za = expon.ppf(alpha / 2)
     zb = expon.ppf(1 - alpha / 2)
     #za = -log(1-alfa)/n;
